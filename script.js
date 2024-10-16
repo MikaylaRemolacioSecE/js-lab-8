@@ -20,7 +20,37 @@ hoverdiv.addEventListener("mouseleave",function(){
 
 //task3: keyboard events
 const userIn = document.getElementById('uinput');
-const inputText = userIn.value;
 userIn.addEventListener("keyup",function(){
-    console.log(inputText);
+    const inText = userIn.value;
+    console.log(inText);
 });
+
+//task 4: form events
+const form = document.querySelector('form');
+const userInput = form.querySelector('input'); 
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    const nameText = userInput.value;
+    console.log("Submitted Name: " + nameText);
+});
+
+//task 5:focus and blur events
+const focus = document.getElementById('focus');
+
+focus.addEventListener("focus",function(){
+    focus.style.borderColor = "red";
+});
+
+focus.addEventListener("blur",function(){
+    focus.style.borderColor = "purple";
+});
+
+//task 6 event delegation
+const list = document.getElementById('list');
+
+list.addEventListener('click', function(e){
+    if(e.target && e.target.nodeName == "LI"){ //checks which li was clicked
+        e.target.style.backgroundColor = "pink";
+    }
+}); 
